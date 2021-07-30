@@ -88,14 +88,11 @@ doItemEraseAttribute(slot.uid, "pokeaddon")
 doSendMagicEffect(getThingPos(cid), 180)
 end
 
-function addonTransformOutfitAbility(cid, attributeValor)
+function addonTransformOutfitAbility(cid)
 local slot = getPlayerSlotItem(cid, CONST_SLOT_FEET)
 if not slot then return false end
 local addon = getItemAttribute(slot.uid, "pokeaddon")
 local table_addon = ADDON_CONFIG[addon]
 if not table_addon then return false end
-local outfit_cid = getCreatureOutfit(cid)
-if not outfit_cid then return false end
-outfit_cid.lookType = table_addon.surf
 doSetCreatureOutfit(cid, {lookType = table_addon.habilidade}, -1)
 end
